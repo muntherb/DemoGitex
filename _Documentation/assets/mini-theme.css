@@ -1,0 +1,627 @@
+/**
+ * Particle HTML Template V2
+ * Theme CSS
+ * Author: Dragan Milenkovic
+ * Copyright - 2021 Skilltech Web Design - skilltechwebdesign.com
+ * URL: https://themeforest.net/item/particle-modern-tech-startup-html-template/20078383?ref=Skilltech
+ * --------------------------------------------------------------
+ *  1. Page Transitions (priority)
+ *  2. Page Preloader (priority)
+ *  3. Structure
+ *  4. Navigation Menus
+ *  5. Fonts
+ *  6. Forms and Buttons
+ *  7. General (transitions, sections, images, reusable style classes)
+ *  8. Overrides / Enhances
+ *  9. Hero Section
+ * 10. CTA Section V1
+ * 11. Portfolio Section
+ * 12. About Us Section
+ * 13. Quote Section
+ * 14. Services Section
+ * 15. CTA Section V2
+ * 16. Skills Section
+ * 17. Contact Us
+ * 18. Footer
+ * 19. Custom Animations, Effects & Decorations
+ * 20. PAGE: Portfolio Item
+ * 21. PAGE: Service Item
+ * 22. Media Queries
+ * 23. Dark Mode Switch
+ * ------------------------------------
+ * -- Blog CSS is in particle-blog.css
+ * -- Colors are in particle-colors.css
+ */
+
+body {
+	background-color: #0e1621;
+	font-family: 'Blinker', sans-serif;
+	color: #647D89;
+}
+/* 
+ * Particle Theme Accent/Brand Colors
+ */
+
+.pa-color-primary { color: #7100B8; }
+.pa-color-primary-rgba { color: rgba(113,0,184,1); }
+.pa-color-primary-b { color: #9300F5; }
+.pa-color-primary-c { color: #B44AFF; }
+.pa-color-primary-d { color: #d12bff; }
+.pa-color-primary-d-rgba { color: rgba(209,43,255,1); }
+.pa-color-secondary { color: #00f2ff; }
+.pa-color-secondary-rgba { color: rgba(0,242,255,1); }
+.pa-color-secondary-b { color: #00bbff; }
+.pa-color-secondary-b-rgba { color: rgba(0,187,255,1); }
+
+#loader {
+	border-top-color: #9300F5;
+}
+
+#loader:before {
+	border-top-color: #B44AFF;
+}
+
+#loader:after {
+	border-top-color: #d12bff;
+}
+
+nav a em {
+	color: #B44AFF;
+}
+
+.pa-h2-v2-hero-subhead strong {
+	color: #9300F5;
+}
+
+.pa-p-v2.pa-bright a {
+	color: #00f2ff;
+}
+
+.pa-p-v2.pa-dark a {
+	color: #9300F5;
+}
+
+.pa-p-v2.pa-dark a:hover {
+	color: #B44AFF;
+}
+
+.pa-h2-quote strong {
+	color: #9300F5;
+}
+
+a,
+a:hover, 
+a:hover .pa-h3-v1.pa-bright {
+	color: #9300F5;
+}
+
+button[type="submit"]:hover, 
+input[type="submit"]:hover {
+	background-color: #9300F5;
+	border-color: #9300F5;
+}
+
+.pa-form-on-white button[type="submit"] {
+	border: 2px solid #7100B8;
+	background-color: #7100B8;
+}
+
+a.pa-button-primary {
+	background-color: #7100B8;
+}
+
+
+footer a:hover {
+	color: #B44AFF;
+}
+
+/*
+ * 3. Structure
+ * ============
+ */
+
+@media all and (min-width: 1500px) {
+	.pa-supercontainer.container, 
+	.pa-supercontainer.container-lg, 
+	.pa-supercontainer.container-md, 
+	.pa-supercontainer.container-sm, 
+	.pa-supercontainer.container-xl {
+		max-width: 1460px;
+	}
+}
+
+
+/*
+ * 5. Fonts
+ * ========
+ */
+
+.pa-h1-v1 {
+	text-transform: uppercase;
+	font-family: 'Blinker', sans-serif;
+	font-size: 44px;
+	line-height: 53px;
+	font-weight: 700;
+}
+
+.pa-h1-v1 strong, 
+.single .pa-h1-v1 {
+	font-weight: 700;
+}
+
+.single .pa-h1-v1 {
+	font-size: 48px;
+	margin-bottom: 18px;
+}
+
+.pa-h1-v1.pa-bright {
+	color: #FFFFFF;
+}
+
+.pa-h1-v1.pa-dark {
+	color: #0C171F;
+}
+
+.pa-h2-v1-hero-subhead.pa-bright {
+	color: #9EC7D9;
+}
+
+.pa-h2-v1-hero-subhead.pa-white {
+	color: #ffffff;
+}
+
+.pa-h2-v1-hero-subhead.pa-dark {
+	color: #657E8A;
+}
+
+a.pa-button-primary {
+	display: inline-block;
+	padding: 0 50px;
+	font-family: play, sans-serif;
+	font-size: 14px;
+	line-height: 50px;
+	color: #FFFFFF;
+	border-radius: 2px;
+}
+
+a.pa-button-primary:hover {
+	background-color: #444B54;
+}
+
+/* Links */
+
+a, a:hover {
+	text-decoration: none;
+}
+
+
+/*
+ * 7. General
+ * ==========
+ */
+
+a, 
+em, 
+input, 
+textarea, 
+button, 
+.pa-mobile-main-logo, 
+.pa-navbar .navbar-nav > li > ul,  
+.pa-navbar .navbar-nav > li > ul > li > ul, 
+.pa-portfolio-thumb, 
+.pa-portfolio-thumb-centered-content, 
+.pa-portfolio-thumb-background-overlay, 
+.pa-portfolio-thumb-heading, 
+.pa-portfolio-thumb-hover-icon, 
+.pa-portfolio-thumb-deco-1, 
+.pa-portfolio-thumb-deco-2, 
+.pa-h3-v1, 
+.pa-social-icons i, 
+.pa-project-icons i, 
+.pa-proj-infobox-label, 
+.pa-proj-infobox-value, 
+span.pa-back-to-top, 
+.cat-item, 
+.lm-button.go-light , 
+.lm-button.go-dark {
+	-webkit-transition: all 0.3s ease 0s;
+		 -o-transition: all 0.3s ease 0s;
+			transition: all 0.3s ease 0s;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+/* Standard section basics */
+
+section.pa-standard-section {
+	padding-top: 140px;
+	padding-bottom: 0;
+}
+
+section.pa-standard-section.pa-bright { /* normal bright section */
+	background-color: #ffffff;
+}
+
+section.pa-standard-section.pa-dark, 
+body.pa-dark section.pa-standard-section { /* normal dark section */
+	background-color: #101C26;
+}
+
+body.pa-dark section.pa-standard-section.pa-dark { /* dark section for dark home */
+	background-color: #0C171F;
+}
+
+/* Section that centers content vertically */
+
+section.pa-centered-section {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	position: relative;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	width: 100%;
+}
+
+/* Full height (but not taller than 1.8*width) */
+
+.pa-full-height {
+	height: 100vh;
+}
+
+/* When section uses a background image as cover */
+
+.pa-image-back {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+/* Fixed background solution for Apple's terrible rendering of "background-attachment: fixed;" (shame on Apple) */
+
+.pa-fixed-background-wrap {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+.pa-absolute-fill {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+hr.pa-divider { /* combine with background color, border, gradients, patterns... */
+	width: 100%;
+	height: 21px;
+	margin-bottom: 20px;	
+}
+
+.pa-pattern-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-repeat: repeat;
+	background: url(../../assets/images/overlay-pattern.png);
+}
+
+.pa-inner-hero-overlay-tint {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000000;
+	opacity: 0.4;
+}
+
+
+
+
+/*
+ * 9. Hero Section
+ * ===============
+ */
+
+
+/* Default Hero */
+
+.pa-hero {
+	min-height: 326px;
+}
+
+.pa-hero-content {
+	margin-top: -100px;
+	margin-top: -12vh;
+}
+
+.row.pa-hero-logo {
+	width: 928px;
+	max-width: 94%;
+	margin: 0 auto;
+}
+
+.pa-hero-logo img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+
+
+
+/*
+ * 18. Footer
+ * ==========
+ */
+
+footer {
+	position: relative;
+	background-color: #0C161E;
+}
+
+footer p {
+	font-size: 15px;
+	font-weight: 400;
+	color: #697982;
+}
+
+footer a {
+	/*font-weight: 300;*/
+	color: #87A1AD;
+}
+
+section.pa-main-footer {
+	background: #091015;
+	padding: 60px 20px 40px;
+}
+
+
+/* 
+ * 19. Custom Animations, Effects & Decorations
+ * ============================================
+ */
+
+/* Hover Effect: Sweep To Right */
+
+.pa-hvr-sweep-to-right, 
+.close_server_response {
+	display: inline-block;
+	vertical-align: middle;
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-moz-osx-font-smoothing: grayscale;
+	position: relative;
+	-webkit-transition-property: color;
+	-o-transition-property: color;
+	transition-property: color;
+	-webkit-transition-duration: 0.3s;
+	-o-transition-duration: 0.3s;
+	   transition-duration: 0.3s;
+}
+
+.pa-hvr-sweep-to-right:before, 
+.close_server_response:before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, .4);
+	-webkit-transform: scaleX(0);
+	-ms-transform: scaleX(0);
+	    transform: scaleX(0);
+	-webkit-transform-origin: 0 50%;
+	-ms-transform-origin: 0 50%;
+	    transform-origin: 0 50%;
+	-webkit-transition-property: transform;
+	-webkit-transition-property: -webkit-transform;
+	transition-property: -webkit-transform;
+	-o-transition-property: transform;
+	transition-property: transform;
+	transition-property: transform, -webkit-transform;
+	-webkit-transition-duration: 0.3s;
+	-o-transition-duration: 0.3s;
+	   transition-duration: 0.3s;
+	-webkit-transition-timing-function: ease-out;
+	-o-transition-timing-function: ease-out;
+	   transition-timing-function: ease-out;
+}
+
+.pa-hvr-sweep-to-right:hover,
+.pa-hvr-sweep-to-right:active, 
+.close_server_response:hover, 
+.close_server_response:active {
+	color: #ffffff;
+	background-color: #40464f;
+}
+
+.pa-hvr-sweep-to-right:hover:before,
+.pa-hvr-sweep-to-right:active:before, 
+.close_server_response:hover:before, 
+.close_server_response:active:before {
+	-webkit-transform: scaleX(1);
+	-ms-transform: scaleX(1);
+	    transform: scaleX(1);
+}
+
+.pa-hvr-sweep-to-right:focus, 
+.close_server_response:focus {
+	outline: none;
+}
+
+
+
+/*
+ * 22. Media Queries
+ * =================
+ */
+
+
+
+@media all and (min-width: 992px) and (max-width: 1199px) { /* lg */
+
+	/* Fonts */
+
+	.pa-h2-v1-hero-subhead {
+		font-size: 24px;
+		line-height: 34px;
+		font-weight: 200;
+	}
+
+	.pa-h2-v2-hero-subhead {
+		font-size: 30px;
+		line-height: 41px;
+	}
+
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) { /* md */
+
+	/* Fonts */
+
+	.pa-h2-v1-hero-subhead {
+		font-size: 24px;
+		line-height: 34px;
+		font-weight: 200;
+	}
+
+	.pa-h2-v2-hero-subhead {
+		font-size: 26px;
+		line-height: 36px;
+	}
+
+	
+	/* General */
+
+	section.pa-standard-section {
+		padding-top: 100px;
+	}
+
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) { /* sm */
+
+	/* Fonts */
+
+	.pa-h1-v1, 
+	.single .pa-h1-v1 {
+		font-size: 32px;
+		line-height: 41px;
+	}
+
+	.pa-h1-v2, 
+	.pa-cta-v2 .pa-h1-v2, 
+	.pa-contact-us .pa-h1-v2 {
+		font-size: 32px;
+		line-height: 44px;
+		margin-bottom: 15px;
+	}
+
+	.pa-h2-v1-hero-subhead {
+		font-size: 24px;
+		line-height: 34px;
+		font-weight: 200;
+	}
+
+	
+
+	/* Forms and Buttons */
+
+	a.pa-button-primary {
+		padding: 0 30px;
+		line-height: 41px;
+	}
+
+	a.pa-button-secondary {
+		padding: 0 35px;
+		line-height: 44px;
+	}
+
+	/* General */
+
+	section.pa-standard-section {
+		padding-top: 90px;
+	}
+
+}
+
+@media all and (max-width: 575px) { /* xs */
+
+	/* Override Bootstrap - increase column margine on mobile */
+	.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, 
+	.col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, 
+	.col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, 
+	.col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, 
+	.col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, 
+	.col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, 
+	.col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, 
+	.col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, 
+	.col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, 
+	.col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+		padding-right: 20px;
+		padding-left: 20px;
+	}
+
+	/* Fonts */
+
+	p {
+		font-size: 16px;
+	}
+
+	.pa-h1-v1, 
+	.single .pa-h1-v1 {
+		font-size: 29px;
+		line-height: 38px;
+	}
+
+	.pa-h1-v2, 
+	.pa-cta-v2 .pa-h1-v2, 
+	.pa-contact-us .pa-h1-v2 {
+		font-size: 27px;
+		line-height: 37px;
+		margin-bottom: 15px;
+	}
+
+	.pa-h2-v1-hero-subhead {
+		font-size: 19px;
+		line-height: 27px;
+		font-weight: 300;
+	}
+
+	/* Forms and Buttons */
+
+	a.pa-button-primary {
+		padding: 0 30px;
+		line-height: 41px;
+	}
+
+	a.pa-button-secondary {
+		padding: 0 35px;
+		line-height: 44px;
+	}
+
+	/* General */
+
+	section.pa-standard-section {
+		padding-top: 60px;
+	}
+
+}
