@@ -3853,11 +3853,11 @@ section.pa-main-footer {
   }
   .image1 {
 	position: relative;
-	top: 0;
-	left: 0;
-	width: 80%;
+    top: 0;
+    left: 0;
+    width: 70%;
     height: 700px;
-    margin-left: 150px;
+    margin-left: 200px;
   }
   .image2 {
 	position: absolute;
@@ -3868,4 +3868,5 @@ section.pa-main-footer {
     width: 25%;
     margin-left: 346px;
     margin-top: 200px;
+	transform: rotateX(180deg);
   }
