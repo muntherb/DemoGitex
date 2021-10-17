@@ -40,6 +40,7 @@
 	<!-- jQuery -->
 	<script src="assets/vendor/jquery/jquery.min.js"></script>
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
 
 
 	<!-- Simple Forms -->
@@ -242,7 +243,7 @@
 			<div class="row">
 				<div class="col-12 text-center">
 					<h1 class="pa-hv-v3 pa-bright"> <b>INSERT PIN</b></h1>
-					<input type="password" pattern="[0-9]*" inputmode="numeric" maxlength="4" onkeypress="return onlyNumberKey(event)" style="width: 40%; font-size: 75px; text-align: center;">
+					<input pattern="\d*" type="password"  inputmode="numeric" maxlength="4" onkeypress="return onlyNumberKey(event)" style="width: 40%; font-size: 75px; text-align: center;">
 				</div>
 				<div class="col-12 text-center" style="padding-top: 20rem;">
 					<div class="form-submit">
@@ -276,7 +277,7 @@
 					<button id="start-camera"><h1 class="pa-h1-v3 pa-bright">Start Camera</h1></button></button>
 				</div>
 				<div class="col-12 text-center">
-					<video id="video" width="480" height="480" autoplay></video>
+					<video id="video" width="480" height="480" autoplay style="transform: rotateX(180deg);"></video>
 					<canvas id="canvas" width="480" height="480" style="display: none;"></canvas>
 					<div class="col-12 text-center">
 						<button id="click-photo"><h1 class="pa-h1-v3 pa-bright"><strong>Capture</strong></h1></button>
@@ -294,45 +295,82 @@
 						</div>
 						<div class="swiper-pagination"></div>
 					  </div>
-					<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-					<script>
 
-						let pictures = []
-						var swiper = new Swiper(".mySwiper", {
-											effect: "coverflow",
-											grabCursor: true,
-											centeredSlides: true,
-											slidesPerView: "auto",
-											coverflowEffect: {
-											  rotate: 50,
-											  stretch: 0,
-											  depth: 100,
-											  modifier: 1,
-											  slideShadows: true,
-											},
-											pagination: {
-											  el: ".swiper-pagination",
-											},
-										  });
-
-						let camera_button = document.querySelector("#start-camera");
-						let video = document.querySelector("#video");
-						let click_button = document.querySelector("#click-photo");
-						let canvas = document.querySelector("#canvas");
-						let container = document.querySelector("#swiper")
-						camera_button.addEventListener('click', async function() {
-							let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
-							video.srcObject = stream;
-						});
-
-						click_button.addEventListener('click', function() {
-							canvas.getContext('2d').drawImage(video, 0, 0, video.width, 360);
-							let image_data_url = canvas.toDataURL('image/jpeg');
-							swiper.appendSlide('<div class="swiper-slide">' + `<img src="${image_data_url}" />` + '</div>');
-						});
-					</script>
 				</div>
+				<div class="row text-center">
+					<div class="sf-wrapper">
+						<form id="contact-form">
+							
+							<!-- <div class="form-group">
+								<label>Name</label>
+								<input type="text" name="name" value="" class="validate-name" minlength="2" required>
+							</div> -->
+	
+							<!-- <div class="form-group">
+								<label>Email</label>
+								<input type="text" name="email" class="validate-email" value="">
+							</div>
+							
+							<div class="form-group">
+								<label>Message</label>
+								<textarea name="message" required></textarea>
+							</div> -->
+	
+	
+							<div class="form-submit text-center" style="padding-left: 400px;">
+								<button id="submitButton" type="submit" class="pa-hvr-sweep-to-right">Print Ticket</button>
+							</div>
+	
+							<div class="server-response"></div>
+	
+						</form>
+					</div>
+				</div>
+				<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+				<script>
 
+					let pictures = []
+					var swiper = new Swiper(".mySwiper", {
+										effect: "coverflow",
+										grabCursor: true,
+										centeredSlides: true,
+										slidesPerView: "auto",
+										coverflowEffect: {
+										  rotate: 50,
+										  stretch: 0,
+										  depth: 100,
+										  modifier: 1,
+										  slideShadows: true,
+										},
+										pagination: {
+										  el: ".swiper-pagination",
+										},
+									  });
+
+					let camera_button = document.querySelector("#start-camera");
+					let video = document.querySelector("#video");
+					let click_button = document.querySelector("#click-photo");
+					let canvas = document.querySelector("#canvas");
+					let container = document.querySelector("#swiper")
+					let submitBut = document.querySelector("#submitButton")
+					camera_button.addEventListener('click', async function() {
+						let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+						video.srcObject = stream;
+					});
+					click_button.addEventListener('click', function() {
+						canvas.getContext('2d').drawImage(video, 0, 0, video.width, 360);
+						let image_data_url = canvas.toDataURL('image/jpeg');
+						swiper.appendSlide('<div class="swiper-slide">' + `<img src="${image_data_url}" />` + '</div>');
+					});
+					submitBut.addEventListener('click', function() {
+						let image_url = swiper.slides[swiper.realIndex].getAttribute('src');
+						console.log(image_url)
+						sendContactForm();
+						return false;
+					})
+					
+
+				</script>
 				<!-- Left Side - About & Links -->
 				<!-- <div class="col-12 text-left">
 					<h1 class="pa-h1-v3 pa-bright fadeInDelay03Duration10">Enter <strong>Your Name</strong></h1>
@@ -345,38 +383,14 @@
 					<!-- <h1 class="pa-h1-v3 pa-bright">Enter Your <strong> Name</strong></h1> -->
 
 					<!-- Real Working Form - Simple Forms V3 -->
-					<div class="sf-wrapper">
-						<form id="contact-form" action="assets/vendor/simple-forms/sendmail.php" method="post">
-							
-							<!-- <div class="form-group">
-								<label>Name</label>
-								<input type="text" name="name" value="" class="validate-name" minlength="2" required>
-							</div> -->
-
-							<!-- <div class="form-group">
-								<label>Email</label>
-								<input type="text" name="email" class="validate-email" value="">
-							</div>
-							
-							<div class="form-group">
-								<label>Message</label>
-								<textarea name="message" required></textarea>
-							</div> -->
-
-
-							<div class="form-submit text-center">
-								<button type="submit" class="pa-hvr-sweep-to-right">Print Ticket</button>
-							</div>
-
-							<div class="server-response"></div>
-
-						</form>
-					</div>
 
 				</div>
 			</div>
 		</div>
 		<script>
+			var form = document.querySelector("#contact-form");
+			function handleForm(event) { event.preventDefault(); } 
+			form.addEventListener('submit', handleForm);
 			$( "#button1" ).click(function() {
 			console.log('toggle')
 			$( "#noShow" ).toggle();

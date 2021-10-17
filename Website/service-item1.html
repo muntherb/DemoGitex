@@ -264,6 +264,7 @@
 		</div>
 		<script>
 			$('#contact-form').submit(function () {
+			e.preventDefault();
 			sendContactForm();
 			return false;
 			});
@@ -287,7 +288,7 @@
 			// doc.output('dataurlnewwindow'); 
 			// doc.output('datauri');
 			doc.output('save', `${names}.pdf`);
-			window.open(doc.output('bloburl'), '_blank');
+			// window.open(doc.output('bloburl'), '_blank');
 						}
 			
 		</script>
